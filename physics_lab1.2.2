@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import os, sys
+# app.py
+fig = plt.figure()
+print("WELCOME_TO_PHYSICS_LAB")
+n = int(input("Enter number of elements : "))  
+x = list(map(float,input("\nEnter the x-co ordinates : ").strip().split()))[:n] 
+print("\nValues of x are - ", x) 
+x1=min(x)
+x2=max(x)
+y = list(map(float,input("\nEnter the y-co ordinates: ").strip().split()))[:n] 
+print("\nValues of y are - ", y)
+y1=min(y)
+y2=max(y)
+m1=(y2-y1)/(x2-x1)
+b = y1-m1*x1
+print("\nSlope: ", m1)
+print("\nX-intercept: ", b)
+x = np.linspace(-5,5,100)
+y = m1*x+b
+plt.plot(m1*x+b,label='y=mx+c')
+s1=str(input("Enter the title: "))
+plt.title(s1.upper(), color='r')
+x2=str(input("Enter the name of X-axis: "))
+plt.xlabel(x2,fontsize=12 ,color='b')
+y2=str(input("Enter the name of Y-axis: "))
+plt.ylabel(y2,fontsize=12 , color='b')
+plt.legend(loc='upper left')
+plt.grid()
+plt.show()
+print('Created by SHIVAM KUMAR ECE K19 batch')
